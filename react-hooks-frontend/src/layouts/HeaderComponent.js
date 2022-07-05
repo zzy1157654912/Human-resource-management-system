@@ -1,8 +1,17 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import imgUrl from './Just_Can_Run_logo.png'
+import '../global'
+import {Button} from "antd";
 
 const HeaderComponent = () => {
+    const navigate = useNavigate();
+    const logOut = () =>  {
+        localStorage.clear();
+        console.log(localStorage)
+        navigate('/login')
+    };
+
     return (
         <div>
             <header>
@@ -24,7 +33,13 @@ const HeaderComponent = () => {
                         <Link to="/employees" className="btn btn-primary mb-2">员工管理</Link>
                     </div>
                     <div style={{marginLeft:"20px"}}>
-                        <Link to="/login" className="btn btn-primary mb-2">退出登录</Link>
+                        <Button to="/"
+                              className="btn btn-primary mb-2"
+                                size={"large"}
+                                onClick={(e)=>logOut(e)}
+                        >
+                            退出登录
+                        </Button>
                     </div>
                     
                 </nav>
