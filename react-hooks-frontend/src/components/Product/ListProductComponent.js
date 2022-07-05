@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import ProductsService from '../../services/ProductsService'
 import AddProductComponent from './AddProductComponent'
 import UpdateProductComponent from './UpdateProductComponent'
+import LeftSide from "../leftSide/LeftSide";
 
 const ListProductComponent = () => {
 
@@ -54,42 +55,45 @@ const ListProductComponent = () => {
 
 
     return (
-        <div className="container" style={{position:"relative"}}>
-            <h2 className="text-center">List Products</h2>
-            <button className="btn btn-primary mb-2" onClick={()=>setShowAddProduct(true)}>Add Product</button>
-            <table className="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th>Product Id</th>
-                        <th>Product Name</th>
-                        <th>Products Infomation</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        products.map(product=>
-                            <tr key={product.id}>
-                                <td>{product.id}</td>
-                                <td>{product.productName}</td>
-                                <td>{product.productInfo}</td>
-                                <td>
-                                    <button className="btn btn-info" onClick={() => updateProduct(product.id)}>Update</button>
-                                    <button className="btn btn-danger" onClick={() => deleteProduct(product.id)} 
-                                        style={{marginLeft:"10px"}}
-                                    >Delete</button>
-                                </td>
-                            </tr>
-                        )
-                    }
-                </tbody>
-            </table>
-            {
-                showAddProduct? <AddProductComponent setShowAddProduct={setShowAddProduct} getAllProducts={getAllProducts} /> : null
-            }
-            {
-                showUpdateProduct? <UpdateProductComponent id={activeId} setShowUpdateProduct={setShowUpdateProduct} getAllProducts={getAllProducts} /> : null
-            }
+        <div style={{display:"flex"}}>
+            <LeftSide />
+            <div className="container" style={{position:"relative"}}>
+                <h2 className="text-center">List Products</h2>
+                <button className="btn btn-primary mb-2" onClick={()=>setShowAddProduct(true)}>Add Product</button>
+                <table className="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Product Id</th>
+                            <th>Product Name</th>
+                            <th>Products Infomation</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products.map(product=>
+                                <tr key={product.id}>
+                                    <td>{product.id}</td>
+                                    <td>{product.productName}</td>
+                                    <td>{product.productInfo}</td>
+                                    <td>
+                                        <button className="btn btn-info" onClick={() => updateProduct(product.id)}>Update</button>
+                                        <button className="btn btn-danger" onClick={() => deleteProduct(product.id)}
+                                            style={{marginLeft:"10px"}}
+                                        >Delete</button>
+                                    </td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+                {
+                    showAddProduct? <AddProductComponent setShowAddProduct={setShowAddProduct} getAllProducts={getAllProducts} /> : null
+                }
+                {
+                    showUpdateProduct? <UpdateProductComponent id={activeId} setShowUpdateProduct={setShowUpdateProduct} getAllProducts={getAllProducts} /> : null
+                }
+            </div>
         </div>
     )
 }

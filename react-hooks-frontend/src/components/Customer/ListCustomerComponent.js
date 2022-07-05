@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import CustomersService from '../../services/CustomersService'
 import AddCustomerComponent from './AddCustomerComponent'
 import UpdateCustomerComponent from './UpdateCustomerComponent'
+import LeftSide from "../leftSide/LeftSide";
 
 const ListCustomerComponent = () => {
 
@@ -48,7 +49,9 @@ const ListCustomerComponent = () => {
 
 
     return (
-        <div className="container" style={{position:"relative"}}>
+        <div style={{display:"flex"}}>
+            <LeftSide />
+            <div className="container" style={{position:"relative"}}>
             <h2 className="text-center">List Customers</h2>
             <button className="btn btn-primary mb-2" onClick={()=>setShowAddCustomer(true)}>Add Customer</button>
             <table className="table table-bordered table-striped">
@@ -86,6 +89,7 @@ const ListCustomerComponent = () => {
             {
                 showUpdateCustomer? <UpdateCustomerComponent id={activeId} setShowUpdateCustomer={setShowUpdateCustomer} getAllCustomers={getAllCustomers} /> : null
             }
+            </div>
         </div>
     )
 }

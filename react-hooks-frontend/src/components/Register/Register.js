@@ -28,7 +28,7 @@ const Register = () => {
 
     //前往登录页面
     const goToLogin = () => {
-        navigate('/')
+        navigate('/login')
     }
 
     return (
