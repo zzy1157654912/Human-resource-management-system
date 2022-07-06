@@ -1,7 +1,7 @@
 import '../Login/login.css'
 import './register.css'
 import React, {useState,useEffect} from "react";
-import {Button, Checkbox, Form, Input} from "antd";
+import {Button, Checkbox, Form, Input,Result} from "antd";
 import {useNavigate} from "react-router-dom";
 const Register = () => {
     const [userName,setUserName] = useState("");
@@ -9,10 +9,10 @@ const Register = () => {
     const [userID,setUserID] = useState("");
     const [userEmail,setUserEmail] = useState("");
     const [userPhone,setUserPhone] = useState("");
-
+    const [result,setResult] = useState(false);
     const navigate = useNavigate();
     const onFinish = (values) => {
-        console.log('Success:', values);
+        console.log('Success:', values,result);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -23,15 +23,17 @@ const Register = () => {
     const userRegister = (e) => {
         e.preventDefault();
         const data = {userName,userPassword,userID,userEmail,userPhone};
-        console.log(data)
+        setResult(true);
+        console.log(data,result);
     }
 
     //前往登录页面
     const goToLogin = () => {
         navigate('/login')
+
     }
 
-    return (
+    return ( result == false ?
         <div className="login-container">
             <div className="login-contain">
                 <div className="login-img"></div>
@@ -153,6 +155,7 @@ const Register = () => {
                                     htmlType="submit"
                                     className="login"
                                     size={"large"}
+                                    onClick={userRegister}
                                 >
                                     注册
                                 </Button>
@@ -172,6 +175,20 @@ const Register = () => {
                 </div>
             </div>
         </div>
+            :
+            <div className="register-success">
+                <Result
+                    status="success"
+                    title="Successfully Purchased Cloud Server ECS!"
+                    subTitle="Order number: 2017182818828182881 Cloud server configuration takes 1-5 minutes, please wait."
+                    extra={[
+                        <Button type="primary" key="console" onClick={(e) => goToLogin()}>
+                            前往登录页面
+                        </Button>
+                    ]}
+                />
+            </div>
+
     )
 }
 

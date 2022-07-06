@@ -7,6 +7,7 @@ const UpdateCustomerComponent = ({id,setShowUpdateCustomer,getAllCustomers}) => 
     const [customerName, setCustomerName] = useState("")
     const [customerPhone, setCustomerPhone] = useState("")
     const [customerAddress, setCustomerAddress] = useState("")
+    const [customerIdCard, setCustomerIdCard] = useState("")
     
 
 
@@ -14,7 +15,7 @@ const UpdateCustomerComponent = ({id,setShowUpdateCustomer,getAllCustomers}) => 
     const UpdateCustomer = (e)=>{
         e.preventDefault();
 
-        const customer = {customerName,customerPhone,customerAddress};
+        const customer = {customerName,customerPhone,customerAddress,customerIdCard};
 
         // console.log(customer)
 
@@ -42,7 +43,7 @@ const UpdateCustomerComponent = ({id,setShowUpdateCustomer,getAllCustomers}) => 
             setCustomerName(response.data.customerName);
             setCustomerPhone(response.data.customerPhone);
             setCustomerAddress(response.data.customerAddress)
-            
+            setCustomerIdCard(response.data.customerIdCard)
         }).catch(error=>{
             console.log(error);
         })
@@ -90,7 +91,16 @@ const UpdateCustomerComponent = ({id,setShowUpdateCustomer,getAllCustomers}) => 
                                     value = {customerAddress}
                                     onChange={e=>setCustomerAddress(e.target.value)} />
                                </div>
-                              
+                               <div className="form-group mb-2">
+                                   <label className="form-label">Customer Address :</label>
+                                   <input
+                                       type="text"
+                                       placeholder="Enter customer IdCard"
+                                       name="customerIdCard"
+                                       className="form-control"
+                                       value = {customerIdCard}
+                                       onChange={e=>setCustomerIdCard(e.target.value)} />
+                               </div>
 
                                 <button className="btn btn-success" onClick={(e)=>UpdateCustomer(e)}>Submit</button>
                                 <button style={{marginLeft:'20px'}} className="btn btn-danger" onClick={()=>setShowUpdateCustomer(false)}>Cancel</button>

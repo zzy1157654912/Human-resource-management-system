@@ -3,6 +3,7 @@ import CustomersService from '../../services/CustomersService'
 import AddCustomerComponent from './AddCustomerComponent'
 import UpdateCustomerComponent from './UpdateCustomerComponent'
 import LeftSide from "../leftSide/LeftSide";
+import ExcelPort from "../ExcelPort/ExcelPort";
 
 const ListCustomerComponent = () => {
 
@@ -17,7 +18,7 @@ const ListCustomerComponent = () => {
     // get customer data from backend
     const getAllCustomers = () =>{
         CustomersService.getAllCustomers().then((response) => {
-            // console.log(response.data)
+            console.log(response.data)
             setCustomers(response.data);
         }).catch(error=>{
             console.log(error)
@@ -53,7 +54,10 @@ const ListCustomerComponent = () => {
             <LeftSide />
             <div className="container" style={{position:"relative"}}>
             <h2 className="text-center">List Customers</h2>
-            <button className="btn btn-primary mb-2" onClick={()=>setShowAddCustomer(true)}>Add Customer</button>
+            <div style={{display:"flex"}}>
+                <button className="btn btn-primary mb-2" onClick={()=>setShowAddCustomer(true)}>Add Customer</button>
+                <ExcelPort />
+            </div>
             <table className="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -61,6 +65,7 @@ const ListCustomerComponent = () => {
                         <th>Customer Name</th>
                         <th>Customer Phone</th>
                         <th>Customer Address</th>
+                        <th>Customer IdCard</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -72,6 +77,7 @@ const ListCustomerComponent = () => {
                                 <td>{customer.customerName}</td>
                                 <td>{customer.customerPhone}</td>
                                 <td>{customer.customerAddress}</td>
+                                <td>{customer.customerIdCard}</td>
                                 <td>
                                     <button className="btn btn-info" onClick={() => updateCustomer(customer.id)}>Update</button>
                                     <button className="btn btn-danger" onClick={() => deleteCustomer(customer.id)} 

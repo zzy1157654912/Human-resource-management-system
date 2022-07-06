@@ -6,6 +6,7 @@ const AddCustomerComponent = ({setShowAddCustomer,getAllCustomers}) => {
     const [customerName, setCustomerName] = useState("")
     const [customerPhone, setCustomerPhone] = useState("")
     const [customerAddress, setCustomerAddress] = useState("")
+    const [customerIdCard, setCustomerIdCard] = useState("")
     
  
 
@@ -13,9 +14,9 @@ const AddCustomerComponent = ({setShowAddCustomer,getAllCustomers}) => {
     const saveCustomer = (e)=>{
         e.preventDefault();
 
-        const customer = {customerName,customerPhone,customerAddress};
+        const customer = {customerName,customerPhone,customerAddress,customerIdCard};
 
-        // console.log(customer)
+        console.log(customer)
 
         
         CustomersService.createCustomer(customer).then(response=>{
@@ -73,7 +74,16 @@ const AddCustomerComponent = ({setShowAddCustomer,getAllCustomers}) => {
                                     value = {customerAddress}
                                     onChange={e=>setCustomerAddress(e.target.value)} />
                                </div>
-                              
+                               <div className="form-group mb-2">
+                                   <label className="form-label">Customer Address :</label>
+                                   <input
+                                       type="text"
+                                       placeholder="Enter customer IdCard"
+                                       name="customerIdCard"
+                                       className="form-control"
+                                       value = {customerIdCard}
+                                       onChange={e=>setCustomerIdCard(e.target.value)} />
+                               </div>
 
                                 <button className="btn btn-success" onClick={(e)=>saveCustomer(e)}>Submit</button>
                                 <button style={{marginLeft:"20px"}} className="btn btn-danger" onClick={()=>setShowAddCustomer(false)}>Cancel</button>
