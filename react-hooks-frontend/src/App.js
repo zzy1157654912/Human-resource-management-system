@@ -8,6 +8,7 @@ import ListProductComponent from './components/Product/ListProductComponent'
 import ListCustomerComponent from './components/Customer/ListCustomerComponent'
 import Login from "./components/Login/Login"
 import Register from './components/Register/Register'
+import Root from './components/Root/Root'
 import {isLogin} from "./global";
 import LeftSide from "./components/leftSide/LeftSide";
 
@@ -30,6 +31,7 @@ export default function App() {
                         <Route path="/employees" element={<ListEmployeeComponent/>}></Route>
                         <Route path="/products" element={<ListProductComponent/>}></Route>
                         <Route path="/customers" element={<ListCustomerComponent/>}></Route>
+                        <Route path="/roots" element={<Root/>}></Route>
                         //路由重定向
                         <Route
                             path="/"

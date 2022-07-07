@@ -1,0 +1,12 @@
+.member-list-contain {
+    width: 85vw;
+    height: calc(100vh - 86px);
+    background-color: #F2F2F2;
+}
+
+.member-list {
+    width: 95%;
+    height: 93%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+}

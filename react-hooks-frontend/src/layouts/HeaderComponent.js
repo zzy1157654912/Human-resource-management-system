@@ -33,6 +33,9 @@ const HeaderComponent = () => {
                         <Link to="/employees" className="btn btn-primary mb-2">员工管理</Link>
                     </div>
                     <div style={{marginLeft:"20px"}}>
+                        <Link to="/roots" className="btn btn-primary mb-2">权限管理</Link>
+                    </div>
+                    <div style={{marginLeft:"20px"}}>
                         { isLogin() == true &&
                         <Button to="/"
                               className="btn btn-primary mb-2"
