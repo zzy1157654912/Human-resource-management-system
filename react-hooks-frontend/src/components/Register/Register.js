@@ -1,13 +1,14 @@
 import '../Login/login.css'
 import './register.css'
+import RegisterService from "../../services/RegisterService";
 import React, {useState,useEffect} from "react";
 import {Button, Checkbox, Form, Input,Result} from "antd";
 import {useNavigate} from "react-router-dom";
 const Register = () => {
-    const [userName,setUserName] = useState("");
-    const [userPassword,setUserPw] = useState("");
-    const [userID,setUserID] = useState("");
-    const [userEmail,setUserEmail] = useState("");
+    const [adminUsername,setUserName] = useState("");
+    const [adminPassword,setUserPw] = useState("");
+    const [adminIdCardNum,setUserID] = useState("");
+    const [adminEmail,setUserEmail] = useState("");
     const [userPhone,setUserPhone] = useState("");
     const [result,setResult] = useState(false);
     const navigate = useNavigate();
@@ -22,9 +23,16 @@ const Register = () => {
     //注册
     const userRegister = (e) => {
         e.preventDefault();
-        const data = {userName,userPassword,userID,userEmail,userPhone};
-        setResult(true);
-        console.log(data,result);
+        const data = {adminIdCardNum,adminUsername,adminPassword,adminEmail};
+        let mes = {adminIdCardNum,adminUsername,adminPassword,adminEmail}
+        RegisterService.register(mes).then((res) => {
+            console.log(res);
+            setResult(true);
+        })
+            .catch((err) => {
+                console.log(err)
+            })
+        console.log(mes,result);
     }
 
     //前往登录页面
@@ -68,7 +76,7 @@ const Register = () => {
                             ]}
                         >
                             <Input
-                                value = {userName}
+                                value = {adminUsername}
                                 onChange = {e =>setUserName(e.target.value)}
                             />
                         </Form.Item>
@@ -85,7 +93,7 @@ const Register = () => {
                         >
                             <Input
                                 size={"small"}
-                                value = {userPassword}
+                                value = {adminPassword}
                                 onChange = {e =>setUserPw(e.target.value)}
                             />
                         </Form.Item>
@@ -102,7 +110,7 @@ const Register = () => {
                         >
                             <Input
                                 size={"small"}
-                                value = {userID}
+                                value = {adminIdCardNum}
                                 onChange = {e =>setUserID(e.target.value)}
                             />
                         </Form.Item>
@@ -119,7 +127,7 @@ const Register = () => {
                         >
                             <Input
                                 size={"small"}
-                                value = {userEmail}
+                                value = {adminEmail}
                                 onChange = {e =>setUserEmail(e.target.value)}
                             />
                         </Form.Item>

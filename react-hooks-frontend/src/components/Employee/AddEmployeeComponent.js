@@ -19,7 +19,6 @@ const AddEmployeeComponent = ({setShowAddEmployee,getAllEmployees}) => {
 
         
         EmployeesService.createEmployee(employee).then(response=>{
-
             console.log(response.data)
             setShowAddEmployee(false);
             getAllEmployees();

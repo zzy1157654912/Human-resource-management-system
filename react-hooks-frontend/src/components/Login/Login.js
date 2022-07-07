@@ -1,4 +1,5 @@
 import React,{ useState,useEffect } from "react";
+import LoginService from "../../services/LoginService";
 import ReactDom from 'react-dom';
 import LoginCss from "./login.css"
 import "../../global"
@@ -11,8 +12,8 @@ import {isLogin} from "../../global";
 
 
 const Login = () => {
-    const [userName,setUserName] = useState("");
-    const [userPassword,setUserPw] = useState("");
+    const [username,setUserName] = useState("");
+    const [password,setUserPw] = useState("");
     const [verificationCode,setCode] = useState("");
 
     const onFinish = (values) => {
@@ -31,15 +32,24 @@ const Login = () => {
 
     const log_in = (e) => {
         e.preventDefault();
-        const data = {userName,userPassword,verificationCode};
+        const data = {username,password};
         console.log(data);
-        setToken("sdfsdfsdafds");
-        if (isLogin()) {
+        LoginService.login(username,password).then((res) => {
+            const code = res.data[0].code;
+            if (code == 0) {
+                setToken("32343243223")
+            }
+        }).then(() => {
+            if (isLogin()) {
 
-            navigate('/customers')
-        } else {
-            navigate('/')
-        }
+                navigate('/customers')
+            } else {
+                navigate('/')
+            }
+        })
+            .catch((err) => {
+            console.log(err)
+        })
     }
 
 
@@ -78,7 +88,7 @@ const Login = () => {
                             ]}
                         >
                             <Input
-                                value = {userName}
+                                value = {username}
                                 onChange = {e =>setUserName(e.target.value)}
                             />
                         </Form.Item>
@@ -95,7 +105,7 @@ const Login = () => {
                         >
                             <Input.Password
                                 size={"small"}
-                                value = {userPassword}
+                                value = {password}
                                 onChange = {e =>setUserPw(e.target.value)}
                             />
                         </Form.Item>
