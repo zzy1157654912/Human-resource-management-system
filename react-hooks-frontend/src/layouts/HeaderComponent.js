@@ -2,7 +2,9 @@ import React from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import imgUrl from './Just_Can_Run_logo.png'
 import {isLogin} from '../global'
-import {Button} from "antd";
+import {Button,Input, Space} from "antd";
+import { AudioOutlined } from '@ant-design/icons';
+const { Search } = Input;
 
 const HeaderComponent = () => {
     const navigate = useNavigate();
@@ -10,6 +12,24 @@ const HeaderComponent = () => {
         localStorage.clear();
         console.log(localStorage)
         navigate('/login')
+    };
+    const state = {}
+    const searchItem = ['产品管理','权限管理','员工管理','客户管理'];
+    const Redirct = useNavigate();
+    const onSearch = (value) => {
+        if (searchItem.indexOf(value) !== -1) {
+            switch (value) {
+                case '产品管理': Redirct('/products');
+                break;
+                case '权限管理': Redirct('/roots');
+                break;
+                case '员工管理': Redirct('/employees');
+                break;
+                case '客户管理': Redirct('/customers');
+            }
+        } else {
+
+        }
     };
 
     return (
@@ -45,6 +65,16 @@ const HeaderComponent = () => {
                             退出登录
                         </Button>
                         }
+                    </div>
+                    <div style={{position:"absolute",right:"5vw"}}>
+                        <Search
+                            placeholder="搜索你需要的内容"
+                            onSearch={onSearch}
+                            status={state}
+                            style={{
+                                width: 200,
+                            }}
+                        />
                     </div>
                     
                 </nav>

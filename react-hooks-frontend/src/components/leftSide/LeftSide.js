@@ -3,6 +3,7 @@ import {isLogin} from "../../global";
 import {Avatar} from "antd";
 import imgURL from './zzy.JPG';
 import React,{ useState,useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Button, Menu } from 'antd';
 import {
     AppstoreOutlined,
@@ -24,7 +25,7 @@ function getItem(label, key, icon, children, type) {
     };
 }
 const items = [
-    getItem('工作数据', '1', <PieChartOutlined />),
+    getItem('管理模块', '1', <PieChartOutlined />),
     getItem('代办事项', '2', <DesktopOutlined />),
     getItem('已完成业务', '3', <ContainerOutlined />),
     getItem('企业邮箱', 'sub1', <MailOutlined />),
@@ -40,7 +41,27 @@ const LeftSide = () => {
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
     };
-
+    //选中管理
+    const [check,setCheck] = useState([])
+    //路由管理
+    const Redirect = useNavigate();
+    //点击跳转
+    const onClick = (e) => {
+        const key = e.key;
+        switch (key) {
+            case '1': Redirect('/products');
+            setCheck(["1"])
+            break;
+            case '2': Redirect('/calendar');
+                setCheck(["2"])
+            break;
+            case '3': console.log(3);
+                setCheck(["3"])
+            break;
+            case 'sub1': window.location.href = "https://email.163.com/";
+            break;
+        }
+    };
     return (
         <div className="left-contain">
             <div className="user-img">
@@ -57,12 +78,14 @@ const LeftSide = () => {
                 {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             </Button>
             <Menu
+                onClick={onClick}
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 mode="inline"
                 theme="light"
                 inlineCollapsed={collapsed}
                 items={items}
+                selectedKeys={check}
             />
         </div>
 

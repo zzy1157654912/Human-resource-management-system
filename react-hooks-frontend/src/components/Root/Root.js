@@ -2,7 +2,7 @@ import './Root.css';
 import LeftSide from "../leftSide/LeftSide";
 import { SearchOutlined } from '@ant-design/icons';
 import React , { useState,useRef }from "react";
-import { Space, Table, Tag, Checkbox, Divider, Row, Col,Button, Input } from 'antd';
+import { Space, Table, Tag, Checkbox, Divider, Row, Col,Button, Input,Switch } from 'antd';
 import Highlighter from 'react-highlight-words';
 
 const CheckboxGroup = Checkbox.Group;
@@ -24,6 +24,10 @@ const Root = () => {
     const handleReset = (clearFilters) => {
         clearFilters();
         setSearchText('');
+    };
+
+    const onChangeRoot = (checked) => {
+        console.log(`switch to ${checked}`);
     };
 
     const getColumnSearchProps = (dataIndex) => ({
@@ -159,10 +163,7 @@ const Root = () => {
             title: '账号封禁',
             key: 'action',
             render: (_, record) => (
-                <Space size="middle">
-                    <a>Invite {record.name}</a>
-                    <a>Delete</a>
-                </Space>
+                <Switch defaultChecked onChange={onChangeRoot} disabled={true} />
             ),
         },
     ];
@@ -176,7 +177,6 @@ const Root = () => {
     const onChange = (checkedValues) => {
         console.log('checked = ', checkedValues);
     };
-
 
     const data = [
         {
@@ -203,13 +203,78 @@ const Root = () => {
             tags: ['nice'],
             root: ['部门权限']
         },
+        {
+            key: '4',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+        {
+            key: '5',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+        {
+            key: '6',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+        {
+            key: '7',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+        {
+            key: '8',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+
+        {
+            key: '9',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+        {
+            key: '10',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
+        {
+            key: '11',
+            name: 'John Brown',
+            position: '技术专家',
+            department: '技术部',
+            tags: ['nice'],
+            root: ['人员权限','部门权限']
+        },
     ];
     return (
         <div className="root-contain" style={{display:"flex"}}>
             <LeftSide />
-            <div className="member-list-contain">
+            <div className="member-list-contain" style={{width:"92vw"}}>
                 <div className="member-list">
-                    <Table columns={columns} dataSource={data} />
+                    <Table columns={columns} dataSource={data} pagination={{pageSize:9}}/>
                 </div>
             </div>
         </div>
