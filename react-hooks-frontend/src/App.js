@@ -10,6 +10,7 @@ import Login from "./components/Login/Login"
 import Register from './components/Register/Register'
 import Root from './components/Root/Root'
 import Calendar from './components/Calendar/Calendar'
+import Department from './components/Department/Department'
 import {isLogin} from "./global";
 import LeftSide from "./components/leftSide/LeftSide";
 
@@ -34,6 +35,7 @@ export default function App() {
                         <Route path="/customers" element={<ListCustomerComponent/>}></Route>
                         <Route path="/roots" element={<Root/>}></Route>
                         <Route path="/calendar" element={<Calendar/>}></Route>
+                        <Route path="/department" element={<Department/>}></Route>
                         //路由重定向
                         <Route
                             path="/"

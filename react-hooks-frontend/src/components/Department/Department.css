@@ -1,0 +1,15 @@
+.department-contain {
+    width: 100vw;
+    display: flex;
+}
+
+.department-content {
+    width: 85vw;
+    height: calc(100vh - 86px);
+}
+
+.head {
+    width: 100%;
+    margin-top: 2vw;
+    margin-left: 2vw;
+}

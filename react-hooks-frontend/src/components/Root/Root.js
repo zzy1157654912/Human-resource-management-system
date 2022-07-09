@@ -269,6 +269,8 @@ const Root = () => {
             root: ['人员权限','部门权限']
         },
     ];
+
+
     return (
         <div className="root-contain" style={{display:"flex"}}>
             <LeftSide />

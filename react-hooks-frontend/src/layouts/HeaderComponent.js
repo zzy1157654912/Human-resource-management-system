@@ -44,7 +44,7 @@ const HeaderComponent = () => {
                         
                     </div>
                     <div style={{marginLeft:"20px"}}>
-                        <Link to="/products" className="btn btn-primary mb-2">产品管理</Link>
+                        <Link to="/department" className="btn btn-primary mb-2">权限管理</Link>
                     </div>
                     <div style={{marginLeft:"20px"}}>
                         <Link to="/customers" className="btn btn-primary mb-2">客户管理</Link>
