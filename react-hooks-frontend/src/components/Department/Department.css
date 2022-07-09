@@ -4,8 +4,9 @@
 }
 
 .department-content {
-    width: 85vw;
+    width: 92vw;
     height: calc(100vh - 86px);
+    background-color: #fafafa;
 }
 
 .head {

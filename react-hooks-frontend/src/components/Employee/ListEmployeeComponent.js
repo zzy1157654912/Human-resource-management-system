@@ -40,8 +40,8 @@ const ListEmployeeComponent = () => {
         // console.log(employeeId);
         EmployeesService.deleteEmployee(employeeId).then(response=>{
 
-            getAllEmployees();
 
+            getAllEmployees();
         }).catch(error=>{
             console.log(error)
         })
