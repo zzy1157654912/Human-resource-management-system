@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import './App.css'
 import {BrowserRouter as Router, Redirect, Route, Routes,useNavigate} from 'react-router-dom'
 import FooterComponent from './layouts/FooterComponent'
@@ -14,6 +14,7 @@ import Department from './components/Department/Department'
 import {isLogin} from "./global";
 import LeftSide from "./components/leftSide/LeftSide";
 
+export const checkLogin = React.createContext(false);
 
 export default function App() {
     //封装一个重定向函数
@@ -24,9 +25,27 @@ export default function App() {
         });
         return null;
     }
+    const [loginCheck,setLoginCheck] = useState(false);
+
+    // const checkLogin = () => {
+    //     if (localStorage.getItem('token')) {
+    //         setLoginCheck(true);
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     checkLogin()
+    //     console.log('执行了')
+    // },[localStorage.getItem('token')])
+
+
         return (
             <Router>
                     <HeaderComponent />
+                    <div style={{display:"flex"}}>
+                        <checkLogin.Provider value={checkLogin}>
+                            {isLogin() == true && <LeftSide/>}
+                        </checkLogin.Provider>
                     <Routes>
                         <Route path="/login" element={<Login/>}></Route>
                         <Route path="/register" element={<Register/>}></Route>
@@ -42,6 +61,7 @@ export default function App() {
                             element={<Redirect to="/login" />}
                         />
                     </Routes>
+                    </div>
 
             </Router>
     )

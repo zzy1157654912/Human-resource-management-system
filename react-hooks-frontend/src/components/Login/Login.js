@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from "react";
+import React, {useState, useEffect, useContext} from "react";
 import LoginService from "../../services/LoginService";
 import ReactDom from 'react-dom';
 import LoginCss from "./login.css"
@@ -8,6 +8,7 @@ import 'antd/dist/antd.css';
 import { useNavigate } from 'react-router-dom';
 import {setToken} from "../../global";
 import {isLogin} from "../../global";
+import { checkLogin } from "../../App";
 
 
 
@@ -30,6 +31,8 @@ const Login = () => {
         navigate('/register')
     }
 
+    let check = useContext(checkLogin);
+
     const log_in = (e) => {
         e.preventDefault();
         const data = {username,password};
@@ -37,6 +40,8 @@ const Login = () => {
         LoginService.login(username,password).then((res) => {
             const code = res.data[0].code;
             if (code == 0) {
+                check = true;
+                console.log(check)
                 setToken("32343243223")
             }
         }).then(() => {

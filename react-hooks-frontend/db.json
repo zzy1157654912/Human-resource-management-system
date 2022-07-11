@@ -1,0 +1,53 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "department": [
+    {
+      "departmentName": "技术部",
+      "id": 1
+    },
+    {
+      "departmentName": "设计部",
+      "id": 2
+    },
+    {
+      "departmentName": "产品经理组",
+      "id": 3
+    },
+    {
+      "departmentName": "测试组",
+      "id": 4
+    }
+  ],
+  "departmentMember": [
+    {
+      "id": 1,
+      "memberName": "周旭光",
+      "memberIdCardNum": "3303939822938789",
+      "departmentPosition": "cto",
+      "memberNum": "1101010"
+    },
+    {
+      "id": 2,
+      "memberName": "余明凯",
+      "memberIdCardNum": "12312321",
+      "departmentPosition": "122312",
+      "memberNum": "323122"
+    }
+  ]
+}

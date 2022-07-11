@@ -63,7 +63,7 @@ const LeftSide = () => {
         }
     };
     return (
-        <div className="left-contain">
+         isLogin() == true && <div className="left-contain">
             <div className="user-img">
                 <Avatar src={imgURL} size={160} shape={"square"}></Avatar>
             </div>
@@ -88,6 +88,7 @@ const LeftSide = () => {
                 selectedKeys={check}
             />
         </div>
+
 
     )
 }

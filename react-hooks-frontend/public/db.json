@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "departmentName": "技术部",
+      "id": 1
+    },
+    {
+      "departmentName": "设计部",
+      "id": 1
+    },
+    {
+      "departmentName": "产品经理组",
+      "id": 1
+    }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" },
+
+}

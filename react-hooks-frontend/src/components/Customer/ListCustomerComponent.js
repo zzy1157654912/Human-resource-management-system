@@ -51,7 +51,6 @@ const ListCustomerComponent = () => {
 
     return (
         <div style={{display:"flex"}}>
-            <LeftSide />
             <div className="container" style={{position:"relative"}}>
             <h2 className="text-center">List Customers</h2>
             <div style={{display:"flex"}}>

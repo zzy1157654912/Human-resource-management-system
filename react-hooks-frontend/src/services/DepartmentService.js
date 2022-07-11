@@ -3,15 +3,15 @@ const Department_BASE_REST_API_URL = "http://localhost:8080/department";
 
 axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 class DepartmentService {
-    addDepartment(departmentName,secondarySegments) {
+    addDepartment(departmentName,id) {
         const options = {
             method:'post',
             Header:{'Content-Type': 'multipart/form-data'},
             data:{
                 departmentName,
-                secondarySegments
+                id
             },
-            url:Department_BASE_REST_API_URL
+            url:"http://localhost:3000/department"
         }
         return (axios(options))
     }
@@ -19,7 +19,34 @@ class DepartmentService {
     getDepartment() {
         const options = {
             method: 'get',
-            url: Department_BASE_REST_API_URL
+            url: 'http://localhost:3000/department'
+        }
+        return (axios(options))
+    }
+
+    getDepartmentMember() {
+        const options = {
+            method: 'get',
+            url: 'http://localhost:3000/departmentMember'
+        }
+        return (axios(options))
+    }
+
+    deleteMember(id) {
+        const options = {
+            method: 'delete',
+            url: 'http://localhost:3000/departmentMember/' + id
+        }
+        return (axios(options))
+    }
+
+    addMember(id,memberName,memberIdCardNum,departmentPosition,memberNum) {
+        const options = {
+            method: 'post',
+            data: {
+                id,memberName,memberIdCardNum,departmentPosition,memberNum
+            },
+            url: 'http://localhost:3000/departmentMember'
         }
         return (axios(options))
     }
