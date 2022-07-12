@@ -58,7 +58,7 @@
         "memberNum": "110"
       }
     ],
-    "2" : [
+    "2": [
       {
         "id": 4,
         "memberName": "陈孟琦",
@@ -81,5 +81,49 @@
         "memberNum": "110"
       }
     ]
-  }
+  },
+  "member": [
+    {
+      "id": 2,
+      "name": "ymk",
+      "IdCard": "303030222201123",
+      "position": "副组长",
+      "department": "Just Can Run"
+    },
+    {
+      "id": 3,
+      "name": "周旭光",
+      "IdCard": "303030222201123",
+      "position": "技术专家",
+      "department": "Just Can Run"
+    },
+    {
+      "id": 4,
+      "name": "陈孟琦",
+      "IdCard": "12312312312213312",
+      "position": "测试小子",
+      "department": "Just Can Run"
+    },
+    {
+      "id": 5,
+      "name": "龚权",
+      "IdCard": "2312312312321",
+      "position": "设计师",
+      "department": "jcr"
+    },
+    {
+      "id": 6,
+      "name": "谢云丹",
+      "IdCard": "2312312312321",
+      "position": "业务分析",
+      "department": "jcr"
+    },
+    {
+      "id": 7,
+      "name": "zzy",
+      "IdCard": "13030333322551128",
+      "position": "组长",
+      "department": "jcr"
+    }
+  ]
 }

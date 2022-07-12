@@ -47,10 +47,7 @@ const HeaderComponent = () => {
                         <Link to="/department" className="btn btn-primary mb-2">部门管理</Link>
                     </div>
                     <div style={{marginLeft:"20px"}}>
-                        <Link to="/customers" className="btn btn-primary mb-2">客户管理</Link>
-                    </div>
-                    <div style={{marginLeft:"20px"}}>
-                        <Link to="/employees" className="btn btn-primary mb-2">员工管理</Link>
+                        <Link to="/customers" className="btn btn-primary mb-2">成员管理</Link>
                     </div>
                     <div style={{marginLeft:"20px"}}>
                         <Link to="/roots" className="btn btn-primary mb-2">权限管理</Link>

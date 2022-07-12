@@ -146,7 +146,7 @@ const Excel = () => {
 
 
     return (
-        <div style={{display:"flex",marginLeft:"58vw"}}>
+        <div style={{display:"flex",marginLeft:"55vw"}}>
             <Upload {...uploadProps}>
                 <Button type="primary" size={"large"} style={{marginRight:"2vw"}}>Excel导入</Button>
             </Upload>
