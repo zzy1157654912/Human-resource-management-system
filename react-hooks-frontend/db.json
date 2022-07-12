@@ -34,20 +34,52 @@
       "id": 4
     }
   ],
-  "departmentMember": [
-    {
-      "id": 1,
-      "memberName": "周旭光",
-      "memberIdCardNum": "3303939822938789",
-      "departmentPosition": "cto",
-      "memberNum": "1101010"
-    },
-    {
-      "id": 2,
-      "memberName": "余明凯",
-      "memberIdCardNum": "12312321",
-      "departmentPosition": "122312",
-      "memberNum": "323122"
-    }
-  ]
+  "departmentMember": {
+    "1": [
+      {
+        "id": 1,
+        "memberName": "周旭光",
+        "memberIdCardNum": "3303939822938789",
+        "departmentPosition": "cto",
+        "memberNum": "1101010"
+      },
+      {
+        "id": 2,
+        "memberName": "余明凯",
+        "memberIdCardNum": "12312321",
+        "departmentPosition": "122312",
+        "memberNum": "323122"
+      },
+      {
+        "id": 3,
+        "memberName": "章子烨",
+        "memberIdCardNum": "1010101010010102222331",
+        "departmentPosition": "组长",
+        "memberNum": "110"
+      }
+    ],
+    "2" : [
+      {
+        "id": 4,
+        "memberName": "陈孟琦",
+        "memberIdCardNum": "3303939822938789",
+        "departmentPosition": "测试专家",
+        "memberNum": "1101010"
+      },
+      {
+        "id": 5,
+        "memberName": "谢云丹",
+        "memberIdCardNum": "12312321",
+        "departmentPosition": "需求分析专家",
+        "memberNum": "323122"
+      },
+      {
+        "id": 6,
+        "memberName": "龚权",
+        "memberIdCardNum": "1010101010010102222331",
+        "departmentPosition": "设计师",
+        "memberNum": "110"
+      }
+    ]
+  }
 }

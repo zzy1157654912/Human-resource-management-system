@@ -49,8 +49,7 @@ const ListEmployeeComponent = () => {
 
 
     return (
-        <div style={{display:"flex"}}>
-            <LeftSide />
+        <div style={{display:"flex",width:"113vw"}}>
             <div className="container" style={{position:"relative"}}>
                 <h2 className="text-center">List Employees</h2>
                 <button className="btn btn-primary mb-2" onClick={()=>setShowAddEmployee(true)}>Add Employee</button>

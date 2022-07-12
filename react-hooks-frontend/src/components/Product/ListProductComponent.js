@@ -56,7 +56,6 @@ const ListProductComponent = () => {
 
     return (
         <div style={{display:"flex"}}>
-            <LeftSide />
             <div className="container" style={{position:"relative"}}>
                 <h2 className="text-center">List Products</h2>
                 <button className="btn btn-primary mb-2" onClick={()=>setShowAddProduct(true)}>Add Product</button>

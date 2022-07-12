@@ -58,10 +58,16 @@ const Department = () => {
     const deleteMember = (key) => {
         //动态更新问题
         const id = data[key].id;
+        let sit;
+        data.map((item,index) => {
+            if (item.id === id) {
+                sit = index
+            }
+        })
+        console.log(sit)
         DepartmentService.deleteMember(id).then((response) => {
             getDepartmentMember();
         })
-
     }
 
 
@@ -121,6 +127,7 @@ const Department = () => {
     const hasSelected = selectedRowKeys.length > 0;
     const handleMenuClick = (e) => {
         message.info('更换部门成功');
+        getDepartmentMember(e.key)
         const departmentName = menuItem[e.key - 1].label;
         setDepartment(departmentName)
     };
@@ -147,9 +154,10 @@ const Department = () => {
         })
     }
     //获取成员列表
-    const getDepartmentMember = () => {
+    const getDepartmentMember = (sit) => {
         DepartmentService.getDepartmentMember().then((response) => {
-            const doubleData = response.data;
+            const doubleData = response.data[sit];
+            console.log(doubleData)
             doubleData.map((item,index) => {
                 item.key = index
             })
@@ -160,7 +168,7 @@ const Department = () => {
     useEffect(() => {
 
         getDepartmentList();
-        getDepartmentMember();
+        getDepartmentMember(1);
 
     }, [])
     const menu = (
@@ -285,8 +293,7 @@ const Department = () => {
     }
 
     return (
-        <div className="department-contain">
-            <LeftSide />
+        <div className="department-contain" style={{width:"85vw"}}>
             <div className="department-content">
                 <div className="head">
                     <Button type="primary" size={"large"} style={{marginRight:"1.5vw"}} onClick={showModalMember} >+ 新建成员</Button>

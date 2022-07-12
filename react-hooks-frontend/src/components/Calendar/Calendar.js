@@ -84,8 +84,7 @@ const Jcalendar = () => {
     };
     return (
         <div style={{display:"flex"}}>
-            <LeftSide />
-            <div style={{width:"92vw"}}>
+            <div style={{width:"85vw"}}>
                 <h3 style={{marginLeft:"2vw",marginTop:"2vw"}}>工作日历表</h3>
                 <Calendar dateCellRender={dateCellRender}
                           monthCellRender={monthCellRender}

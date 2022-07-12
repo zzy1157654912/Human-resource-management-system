@@ -44,7 +44,7 @@ export default function App() {
                     <HeaderComponent />
                     <div style={{display:"flex"}}>
                         <checkLogin.Provider value={checkLogin}>
-                            {isLogin() == true && <LeftSide/>}
+                             <LeftSide/>
                         </checkLogin.Provider>
                     <Routes>
                         <Route path="/login" element={<Login/>}></Route>

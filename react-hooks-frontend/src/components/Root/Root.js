@@ -272,9 +272,8 @@ const Root = () => {
 
 
     return (
-        <div className="root-contain" style={{display:"flex"}}>
-            <LeftSide />
-            <div className="member-list-contain" style={{width:"92vw"}}>
+        <div className="root-contain" style={{display:"flex",width:"85vw"}}>
+            <div className="member-list-contain">
                 <div className="member-list">
                     <Table columns={columns} dataSource={data} pagination={{pageSize:9}}/>
                 </div>

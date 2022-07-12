@@ -49,7 +49,7 @@ const LeftSide = () => {
     const onClick = (e) => {
         const key = e.key;
         switch (key) {
-            case '1': Redirect('/products');
+            case '1': Redirect('/department');
             setCheck(["1"])
             break;
             case '2': Redirect('/calendar');
@@ -63,7 +63,7 @@ const LeftSide = () => {
         }
     };
     return (
-         isLogin() == true && <div className="left-contain">
+         isLogin() == true && <div className="left-contain" style={{width:"20vw"}}>
             <div className="user-img">
                 <Avatar src={imgURL} size={160} shape={"square"}></Avatar>
             </div>
